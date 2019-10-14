@@ -46,19 +46,19 @@
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-config</artifactId>
-            <version>${vertx-version}</version>
+            <version>3.8.2</version>
         </dependency>
 
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-mongo-client</artifactId>
-            <version>${vertx-version}</version>
+            <version>3.8.2</version>
         </dependency>
 
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-rx-java2</artifactId>
-            <version>${vertx-version}</version>
+            <version>3.8.2</version>
         </dependency>
 
     </dependencies>

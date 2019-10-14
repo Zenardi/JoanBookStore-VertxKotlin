@@ -1,75 +1,59 @@
 package repository
 
+import io.reactivex.Completable
+import io.reactivex.Maybe
+import io.reactivex.Single
 import io.vertx.core.json.JsonObject
+import io.vertx.ext.mongo.MongoClient
+import jdk.nashorn.internal.objects.NativeFunction.function
 import model.Book
+import jdk.nashorn.internal.objects.NativeArray.forEach
+import java.util.ArrayList
 
-class BookRepository (private val client: MongoClient){
-    val all: Single<List<Book>>
-        get() {
-            val query = JsonObject()
 
-            return client.rxFind(COLLECTION_NAME, query)
-                .flatMap { result ->
-                    val books = ArrayList<Book>()
-                    result.forEach { book -> books.add(Book(book)) }
 
-                    Single.just<List<Book>>(books)
+class BookRepository{
+
+    private val COLLECTION_NAME = "books"
+
+    private var client: MongoClient? = null
+
+    fun BookRepository(client: MongoClient) {
+        this.client = client
+    }
+
+    fun getAll(): ArrayList<Book> {
+        val query = JsonObject()
+        val books = ArrayList<Book>()
+
+        val r = client?.find(COLLECTION_NAME, query, { res ->
+            if (res.succeeded()) {
+                for (json in res.result()) {
+                    println(json.toString())
                 }
-        }
-
-    fun getById(id: String): Maybe<Book> {
-        val query = JsonObject().put("_id", id)
-
-        return client.rxFindOne(COLLECTION_NAME, query, null)
-            .flatMap { result ->
-                val book = Book(result)
-
-                Maybe.just(book)
+            } else {
+                res.cause().printStackTrace()
             }
+        })
+        return books
     }
 
-    fun insert(book: Book): Maybe<Book> {
-        return client.rxInsert(COLLECTION_NAME, JsonObject.mapFrom(book))
-            .flatMap { result ->
-                val jsonObject = JsonObject().put("_id", result)
-                val insertedBook = Book(jsonObject)
-
-                Maybe.just(insertedBook)
-            }
-    }
-
-    fun update(id: String, book: Book): Completable {
+    fun getById(id: String): ArrayList<Book> {
         val query = JsonObject().put("_id", id)
+        val books = ArrayList<Book>()
 
-        return client.rxReplaceDocuments(COLLECTION_NAME, query, JsonObject.mapFrom(book))
-            .flatMapCompletable { result ->
-                if (result.docModified == 1L) {
-                    return@client.rxReplaceDocuments(COLLECTION_NAME, query, JsonObject.mapFrom(book))
-                        .flatMapCompletable Completable . complete ()
-                } else {
-                    return@client.rxReplaceDocuments(COLLECTION_NAME, query, JsonObject.mapFrom(book))
-                        .flatMapCompletable Completable . error NoSuchElementException("No book with id $id")
+        val r =  client?.findOne(COLLECTION_NAME, query,null, { res ->
+            if (res.succeeded()) {
+                for (json in res.result()) {
+                    println(json.toString())
                 }
+
+            } else {
+                res.cause().printStackTrace()
             }
+        })
+        return books
     }
 
-    fun delete(id: String): Completable {
-        val query = JsonObject().put("_id", id)
 
-        return client.rxRemoveDocument(COLLECTION_NAME, query)
-            .flatMapCompletable { result ->
-                if (result.removedCount == 1L) {
-                    return@client.rxRemoveDocument(COLLECTION_NAME, query)
-                        .flatMapCompletable Completable . complete ()
-                } else {
-                    return@client.rxRemoveDocument(COLLECTION_NAME, query)
-                        .flatMapCompletable Completable . error NoSuchElementException("No book with id $id")
-                }
-            }
-    }
-
-    companion object {
-
-        private val COLLECTION_NAME = "books"
-    }
 }

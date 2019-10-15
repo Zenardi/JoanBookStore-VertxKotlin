@@ -60,12 +60,24 @@ class BookRepository (client: MongoClient){
          val query = JsonObject().put("_id", id);
         val books = ArrayList<Book>()
 
-        client?.updateCollection("books", query, JsonObject.mapFrom(book), { res ->
+        client?.updateCollection(COLLECTION_NAME, query, JsonObject.mapFrom(book), { res ->
             if (res.succeeded()) {
                 println("Book updated !")
                 Completable.complete()
             } else {
                 Completable.error(NoSuchElementException("No book with id " + id))
+            }
+        })
+
+    }
+
+    fun insert(book : Book){
+        client?.insert(COLLECTION_NAME, JsonObject.mapFrom(book), { res ->
+            if (res.succeeded()) {
+                var id = res.result()
+                println("Inserted book with id ${id}")
+            } else {
+                res.cause().printStackTrace()
             }
         })
 

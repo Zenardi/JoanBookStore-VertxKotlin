@@ -33,22 +33,17 @@ class BookHandler(bookService: BookService) {
             { throwable -> onErrorResponse(rc, 400, throwable) })
     }
 
-//    fun insertOne(rc: io.vertx.ext.web.RoutingContext) {
-//        val book = mapRequestBodyToBook(rc)
-//
-//        bookService.insert(book)
-//            .subscribe(
-//                { result -> onSuccessResponse(rc, 201, result) },
-//                { throwable -> onErrorResponse(rc, 400, throwable) })
-//    }
+    fun insertOne(rc: RoutingContext) {
+        val book = mapRequestBodyToBook(rc)
+
+        bookService?.insert(book)
+    }
 
     fun updateOne(rc: io.vertx.ext.web.RoutingContext) {
         val id = rc.pathParam("id")
         val book = mapRequestBodyToBook(rc)
 
-        bookService?.update(id, book)?.subscribe(
-            { onSuccessResponse(rc, 204, null) },
-            { throwable -> onErrorResponse(rc, 400, throwable) })
+        bookService?.update(id, book)
     }
 
     // Mapping between book class and request body JSON object

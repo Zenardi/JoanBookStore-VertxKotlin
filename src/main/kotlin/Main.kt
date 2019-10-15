@@ -1,3 +1,4 @@
+import io.reactivex.Completable
 import io.vertx.core.Vertx
 import io.vertx.core.Vertx.vertx
 import io.vertx.core.json.Json
@@ -8,52 +9,17 @@ import verticle.MainVerticle
 object Main {
     @JvmStatic
     fun main(args: Array<String>) {
-            val vertx = vertx()
-    val httpServer = vertx.createHttpServer()
+        val vertx = Vertx.vertx()
 
+        vertx.deployVerticle("verticle.MainVerticle", { res ->
+            if (res.succeeded()) {
 
-    val router = Router.router(vertx)
-    router.get("/")
-            .handler(
-                {
-                    routingContext ->
-                    val response = routingContext.response()
-                    response.putHeader("content-type", "text/plain")
-                            .setChunked(true)
-                            .write("hi \n")
-                            .end("ended")
+                println("Deployment id is: ${res.result()}")
+            } else {
+                println("Deployment failed!")
             }
-            )
-
-    router.get("/json/:name").handler(
-            {
-                routingContext ->
-                val request = routingContext.request()
-                val name = request.getParam("name")
-                val response = routingContext.response()
-                response.putHeader("content-type", "application/json")
-                        .setChunked(true)
-                        .write(Json.encodePrettily(ResponseObject(name)))
-                        .end()
-            }
-    )
-
-
-    httpServer
-            .requestHandler(router::accept)
-            .listen(8080)
+        })
     }
-
-//        val vertx = Vertx.vertx()
-//
-//        vertx.deployVerticle(MainVerticle::class.objectInstance)
-//            .subscribe(
-//                { verticle -> println("New verticle started!") },
-//                { throwable ->
-//                    println("Error occurred before deploying a new verticle: "/* + throwable.messmessage*/)
-//                    System.exit(1)
-//                })
-//    }
 }
 
 data class ResponseObject(var name:String = "")

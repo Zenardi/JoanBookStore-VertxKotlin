@@ -16,7 +16,6 @@ class BookRouter(private val vertx: Vertx, private val bookHandler: BookHandler)
             bookRouter.get("/api/v1/books/:id").handler(Handler<RoutingContext> { bookHandler.getOne(it) })
             bookRouter.post("/api/v1/books").handler(Handler<RoutingContext> { bookHandler.insertOne(it) })
             bookRouter.put("/api/v1/books/:id").handler(Handler<RoutingContext> { bookHandler.updateOne(it) })
-            //bookRouter.delete("/api/v1/books/:id").handler(Handler<RoutingContext> { bookHandler.deleteOne(it) })
 
             return bookRouter
         }

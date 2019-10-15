@@ -24,11 +24,11 @@ class BookService(bookRepository: BookRepository) {
         return bookRepository?.getById(id)
     }
 
-//    fun insert(book: Book): Maybe<Book> {
-//        return bookRepository.insert(book)
-//    }
-//
-    fun update(id: String, book: Book): Completable {
-        return bookRepository.update(id, book)
+    fun insert(book: Book){
+        bookRepository?.insert(book)
+    }
+
+    fun update(id: String, book: Book) {
+        bookRepository?.update(id, book)
     }
 }

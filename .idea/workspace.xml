@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0605bd25-03ee-4fd9-889b-4fe04d8255da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/handler/BookHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/handler/BookHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Book.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Book.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/BookRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/BookRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/router/BookRouter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/router/BookRouter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/service/BookService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/service/BookService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/verticle/MainVerticle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/verticle/MainVerticle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bookstore/vertx/Hello.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/handler/BookHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Book.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/BookRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/router/BookRouter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/BookService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticle.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/HelloTest.kt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +66,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Kotlin.Main">
+    <configuration name="Main" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="bookstore-vertx-kotlin" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="com.bookstore.vertx.HelloKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="bookstorevertxkotlin" />
       <option name="VM_PARAMETERS" />
@@ -75,6 +95,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.Main" />
         <item itemvalue="Kotlin.com.bookstore.vertx.HelloKt" />
       </list>
     </recent_temporary>
@@ -91,7 +112,7 @@
       <updated>1571000471660</updated>
       <workItem from="1571050166066" duration="13127000" />
       <workItem from="1571083164270" duration="687000" />
-      <workItem from="1571163204811" duration="1601000" />
+      <workItem from="1571163204811" duration="2729000" />
     </task>
     <servers />
   </component>

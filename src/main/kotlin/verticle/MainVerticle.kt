@@ -1,15 +1,12 @@
 package verticle
 
 import handler.BookHandler
-import io.vertx.config.ConfigRetriever
-import io.vertx.config.ConfigRetrieverOptions
-import io.vertx.config.ConfigStoreOptions
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Vertx
 import io.vertx.core.http.HttpServer
 import io.vertx.core.json.JsonObject
 import io.vertx.ext.mongo.MongoClient
-import io.vertx.reactivex.ext.web.Router
+import io.vertx.ext.web.Router
 import repository.BookRepository
 import router.BookRouter
 import service.BookService
@@ -19,20 +16,15 @@ import service.BookService
 class MainVerticle : AbstractVerticle() {
 
     override fun start() {
-        val store = ConfigStoreOptions().setType("env")
-        val options = ConfigRetrieverOptions().addStore(store)
-        val retriever = ConfigRetriever.create(vertx, options)
-
-        retriever.getConfig({ configurations ->
-                val client = createMongoClient(vertx, configurations)
-
-                val bookRepository = BookRepository(client)
-                val bookService = BookService(bookRepository)
-                val bookHandler = BookHandler(bookService)
-                val bookRouter = BookRouter(vertx, bookHandler)
-
-                createHttpServer(bookRouter.router, configurations)
-            })
+        val mongoconfig = JsonObject()
+            .put("connection_string", "mongodb://localhost:27017")
+            .put("db_name", "books")
+        val client = createMongoClient(vertx, mongoconfig)
+        val bookRepository = BookRepository(client)
+        val bookService = BookService(bookRepository)
+        val bookHandler = BookHandler(bookService)
+        val bookRouter = BookRouter(vertx, bookHandler)
+        createHttpServer(bookRouter.router)
     }
 
     // Private methods
@@ -48,11 +40,11 @@ class MainVerticle : AbstractVerticle() {
         return MongoClient.createShared(vertx, config)
     }
 
-    private fun createHttpServer(router: Router, configurations: JsonObject): HttpServer {
+    private fun createHttpServer(router: Router): HttpServer {
         return vertx
             .createHttpServer()
-            .requestHandler(router)
-            .listen(configurations.getInteger("HTTP_PORT")!!)
+            .requestHandler(router::accept)
+            .listen(8080)
     }
 
 }

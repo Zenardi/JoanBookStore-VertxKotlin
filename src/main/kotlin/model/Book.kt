@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.vertx.core.json.JsonObject
 
-class Book {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Book {
 
     var id: String? = null
     var title: String? = null
@@ -33,4 +34,20 @@ class Book {
         this.quantity = jsonObject.getInteger("quantity")
 
     }
+
+    constructor(book: Book) {
+        this.id = book.id
+        this.title = book.title
+        this.description = book.description
+        this.isbn = book.isbn
+        this.author = book.author
+        this.genre = book.genre
+        this.pages = book.pages
+        this.ageRange = book.ageRange
+        this.price = book.price
+        this.quantity = book.quantity
+
+    }
+
+    constructor(book: Map.Entry<String, Any>)
 }

@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0605bd25-03ee-4fd9-889b-4fe04d8255da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/handler/BookHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/handler/BookHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Book.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Book.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/BookRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/repository/BookRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/router/BookRouter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/router/BookRouter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/service/BookService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/service/BookService.kt" afterDir="false" />
@@ -93,6 +91,7 @@
       <updated>1571000471660</updated>
       <workItem from="1571050166066" duration="13127000" />
       <workItem from="1571083164270" duration="687000" />
+      <workItem from="1571163204811" duration="1601000" />
     </task>
     <servers />
   </component>

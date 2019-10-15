@@ -1,11 +1,14 @@
 package service
 
 
+import io.reactivex.Completable
+import io.reactivex.Single
+import io.vertx.ext.mongo.MongoClient
 import model.Book
 import repository.BookRepository
 import java.util.ArrayList
 
-class BookService() {
+class BookService(bookRepository: BookRepository) {
 
     private var bookRepository: BookRepository? = null
 
@@ -13,11 +16,11 @@ class BookService() {
         this.bookRepository = bookRepository
     }
 
-    fun getAll(): ArrayList<Book>? {
+    fun getAll(): Single<ArrayList<Book>>? {
         return bookRepository?.getAll()
     }
 
-    fun getById(id: String): ArrayList<Book>? {
+    fun getById(id: String): Single<ArrayList<Book>>? {
         return bookRepository?.getById(id)
     }
 
@@ -25,7 +28,7 @@ class BookService() {
 //        return bookRepository.insert(book)
 //    }
 //
-//    fun update(id: String, book: Book): Completable {
-//        return bookRepository.update(id, book)
-//    }
+    fun update(id: String, book: Book): Completable {
+        return bookRepository.update(id, book)
+    }
 }

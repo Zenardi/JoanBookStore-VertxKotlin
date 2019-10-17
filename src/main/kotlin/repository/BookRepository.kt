@@ -3,16 +3,15 @@ import io.reactivex.Completable
 import io.reactivex.Single
 import io.vertx.core.json.JsonObject
 import io.vertx.ext.mongo.MongoClient
+import io.vertx.reactivex.redis.client.Response
 import model.Book
 import java.util.ArrayList
 import java.util.NoSuchElementException
 
 
-
-
 class BookRepository (client: MongoClient){
 
-    private val COLLECTION_NAME = "books"
+    private val COLLECTION_NAME = "Books"
 
     private var client: MongoClient? = null
 
@@ -25,7 +24,7 @@ class BookRepository (client: MongoClient){
         val books = ArrayList<Book>()
         client?.find(COLLECTION_NAME, query) { res ->
             if (res.succeeded()) {
-
+                print(res.result())
                 for (json in res.result()) {
                     json.forEach { book -> books.add(Book(book)) }
                 }
@@ -34,6 +33,7 @@ class BookRepository (client: MongoClient){
                 res.cause().printStackTrace()
             }
         }
+
         return Single.just(books);
     }
 

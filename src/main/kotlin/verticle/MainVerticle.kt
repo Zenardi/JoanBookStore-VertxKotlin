@@ -1,6 +1,7 @@
 package verticle
 
 import handler.BookHandler
+import io.reactivex.Single
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Vertx
 import io.vertx.core.http.HttpServer
@@ -18,29 +19,23 @@ class MainVerticle : AbstractVerticle() {
     override fun start() {
         val mongoconfig = JsonObject()
             .put("connection_string", "mongodb://localhost:27017")
-            .put("db_name", "books")
+            .put("db_name", "BookstoreDb")
+            .put("useObjectId", true)
+
         val client = createMongoClient(vertx, mongoconfig)
         val bookRepository = BookRepository(client)
         val bookService = BookService(bookRepository)
         val bookHandler = BookHandler(bookService)
         val bookRouter = BookRouter(vertx, bookHandler)
-        createHttpServer(bookRouter.router)
+        createHttpServer(bookRouter.getRouter())
     }
 
     // Private methods
     private fun createMongoClient(vertx: Vertx, configurations: JsonObject): MongoClient {
-        val config = JsonObject()
-            .put("host", configurations.getString("localhost"))
-            //.put("username", configurations.getString("user"))
-            //.put("password", configurations.getString("pwd"))
-            //.put("authSource", configurations.getString("AUTHSOURCE"))
-            .put("db_name", configurations.getString("books"))
-            //.put("useObjectId", true)
-
-        return MongoClient.createShared(vertx, config)
+        return MongoClient.createShared(vertx, configurations)
     }
 
-    private fun createHttpServer(router: Router): HttpServer {
+    private fun createHttpServer(router: Router): HttpServer? {
         return vertx
             .createHttpServer()
             .requestHandler(router::accept)

@@ -6,7 +6,7 @@ import io.vertx.ext.web.RoutingContext
 import model.Book
 import service.BookService
 import java.lang.IllegalArgumentException
-import java.util.NoSuchElementException
+import java.util.ArrayList
 
 
 class BookHandler(bookService: BookService) {
@@ -60,11 +60,11 @@ class BookHandler(bookService: BookService) {
     }
 
     // Generic responses
-    private fun onSuccessResponse(rc: RoutingContext, status: Int, obj: Any?) {
+    private fun onSuccessResponse(rc: RoutingContext, status: Int, obj: ArrayList<Book>) {
         rc.response()
             .setStatusCode(status)
             .putHeader("Content-Type", "application/json")
-            .end(Json.encodePrettily("obj"))
+            .end(Json.encodePrettily(obj))
     }
 
     private fun onErrorResponse(rc: RoutingContext, status: Int, throwable: Throwable) {

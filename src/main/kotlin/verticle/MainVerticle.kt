@@ -1,45 +1,45 @@
 package verticle
 
-import handler.BookHandler
-import io.reactivex.Single
 import io.vertx.core.AbstractVerticle
+import io.vertx.core.Future
 import io.vertx.core.Vertx
-import io.vertx.core.http.HttpServer
-import io.vertx.core.json.JsonObject
-import io.vertx.ext.mongo.MongoClient
 import io.vertx.ext.web.Router
-import repository.BookRepository
-import router.BookRouter
-import service.BookService
+import io.vertx.ext.web.handler.BodyHandler
+import router.RequestRoutes
 
-
+fun main() {
+    val vertx = Vertx.vertx()
+    vertx.deployVerticle(MainVerticle())
+}
 
 class MainVerticle : AbstractVerticle() {
 
-    override fun start() {
-        val mongoconfig = JsonObject()
-            .put("connection_string", "mongodb://localhost:27017")
-            .put("db_name", "BookstoreDb")
-            .put("useObjectId", true)
+    override fun start(startFuture: Future<Void>) {
+        // create a router object
+        val router = Router.router(vertx)
 
-        val client = createMongoClient(vertx, mongoconfig)
-        val bookRepository = BookRepository(client)
-        val bookService = BookService(bookRepository)
-        val bookHandler = BookHandler(bookService)
-        val bookRouter = BookRouter(vertx, bookHandler)
-        createHttpServer(bookRouter.getRouter())
-    }
+        // create a body handler for all requests
+        router.route().handler(BodyHandler.create())
+        mapRoutes(router)
 
-    // Private methods
-    private fun createMongoClient(vertx: Vertx, configurations: JsonObject): MongoClient {
-        return MongoClient.createShared(vertx, configurations)
-    }
-
-    private fun createHttpServer(router: Router): HttpServer? {
-        return vertx
+        // create server
+        vertx
             .createHttpServer()
             .requestHandler(router::accept)
-            .listen(8080)
+            .listen(8888) { http ->
+                if (http.succeeded()) {
+                    startFuture.complete()
+                    println("HTTP server started on port 8888")
+                } else {
+                    startFuture.fail(http.cause())
+                    println("Server couldn't be started due to: ${http.cause()}")
+                }
+            }
+    }
+
+
+    private fun mapRoutes(router: Router) {
+        router.mountSubRouter("/", RequestRoutes(vertx).router)
     }
 
 }

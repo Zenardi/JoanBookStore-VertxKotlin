@@ -2,36 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0605bd25-03ee-4fd9-889b-4fe04d8255da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/configs/Config.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/controllers/Requests.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/router/RequestRoutes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/utils/MongoUtil.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/bookstore/vertx/Hello.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/handler/BookHandler.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/repository/BookRepository.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/router/BookRouter.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/service/BookService.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/verticle/MainVerticle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/verticle/MainVerticle.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/bookstore-vertx-kotlin.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/bookstore-vertx-kotlin.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main$main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ResponseObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handler/BookHandler$getAll$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handler/BookHandler$getAll$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handler/BookHandler$getOne$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handler/BookHandler$getOne$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handler/BookHandler$getOne$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handler/BookHandler$getOne$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/handler/BookHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/handler/BookHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/BookRepository$getAll$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/BookRepository$getAll$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/BookRepository$getById$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/BookRepository$getById$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/BookRepository$update$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/BookRepository$update$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repository/BookRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/router/BookRouter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/router/BookRouter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticle$createHttpServer$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticle$sam$io_vertx_core_Handler$0.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configs/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configs/Config.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controllers/Requests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controllers/Requests.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/router/RequestRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/router/RequestRoutes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/configs/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/configs/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/router/RequestRoutes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/router/RequestRoutes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/MongoUtil$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MongoUtil$Companion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/MongoUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MongoUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/verticle/MainVerticle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticleKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/verticle/MainVerticleKt.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +64,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Kotlin.verticle.MainVerticleKt">
+  <component name="RunManager" selected="Kotlin.verticle.MainVerticleKt (1)">
     <configuration name="Main (1)" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="bookstorevertxkotlin" />
       <option name="VM_PARAMETERS" />
@@ -122,6 +104,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="verticle.MainVerticleKt (1)" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="bookstorevertxkotlin" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="verticle.MainVerticleKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="verticle.MainVerticleKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
       <module name="bookstore-vertx-kotlin" />
       <option name="VM_PARAMETERS" />
@@ -137,6 +132,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.verticle.MainVerticleKt (1)" />
         <item itemvalue="Kotlin.verticle.MainVerticleKt" />
         <item itemvalue="Kotlin.Main" />
         <item itemvalue="Kotlin.Main (1)" />

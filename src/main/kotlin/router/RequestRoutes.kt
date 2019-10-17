@@ -17,18 +17,24 @@ class RequestRoutes(vertx: Vertx) {
 
         router.get("/books/:isbn").handler { routingContext ->
             //Requests.index(routingContext)
-            val  jsonQuery = JsonObject().put("isbn", routingContext.request().getParam("isbn"))
+            val  jsonQuery = JsonObject().put("ISBN", routingContext.request().getParam("isbn"))
             Requests.getByIsbn(routingContext, "Books", jsonQuery)
 
         }
 
         router.patch("/books/:isbn").handler { routingContext ->
-            val  jsonIsbn = JsonObject().put("isbn", routingContext.request().getParam("isbn"))
+            val  jsonIsbn = JsonObject().put("ISBN", routingContext.request().getParam("isbn"))
             print(jsonIsbn)
 
-            val  fieldsToUpdate = routingContext.bodyAsJson;
+            val  fieldsToUpdate = routingContext.bodyAsJson
             print(fieldsToUpdate)
             Requests.updateIsbn(routingContext, "Books", fieldsToUpdate , jsonIsbn)
+        }
+
+        router.post("/book/new").handler { routingContext ->
+            val newBook = routingContext.bodyAsJson
+            print(newBook)
+            Requests.addBook(routingContext, "Books", newBook)
         }
 
     }

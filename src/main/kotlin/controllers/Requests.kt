@@ -50,19 +50,47 @@ class Requests {
 
         fun updateIsbn(routingContext: RoutingContext, collectionName: String, fieldsToUpdate: JsonObject, isbnJson : JsonObject) {
 
-            MongoUtil.getClient().findOneAndUpdate(collectionName, JsonObject.mapFrom(isbnJson), JsonObject.mapFrom(fieldsToUpdate), { result ->
-                if (result.succeeded()) {
-                    //println("vim")
-                    val book = result.result()
+            MongoUtil.getClient().updateCollection("books", isbnJson, fieldsToUpdate, { res ->
+                if (res.succeeded()) {
+                    println("Book updated !")
+                } else {
+                    res.cause().printStackTrace()
+                }
+            })
+
+
+//            MongoUtil.getClient().updateCollection(collectionName, isbnJson, fieldsToUpdate, { result ->
+//                if (result.succeeded()) {
+//                    //println("vim")
+//                    val book = result.result()
+//                    val response = routingContext.response()
+//                    response
+//                        .putHeader("content-type", "application/json")
+//                        .end(Json.encode(book))
+//                } else {
+//                    println(result)
+//                }
+//            })
+        }
+
+
+        fun addBook(routingContext: RoutingContext, collectionName: String, newBook : JsonObject) {
+
+            MongoUtil.getClient().insert(collectionName, newBook, { res ->
+                if (res.succeeded()) {
+                    val book = res.result()
                     val response = routingContext.response()
                     response
                         .putHeader("content-type", "application/json")
-                        .end(Json.encode(book))
+                        .end(Json.encode(newBook))
+
                 } else {
-                    println(result)
+                    println(res.cause())
                 }
             })
         }
+
+
 
 
     }

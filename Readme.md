@@ -89,7 +89,7 @@ Joan wants to find the book `Name of the Wind` by Patrick Rothfuss but she can't
 
 She should be able to combine her search terms in any number of ways she wants.  Results should be sorted in the standard format stated in the previous problems.
 
-#Results
+# Results
 
 #### Endpoints
 ##### GET: http://localhost:8888/books/<ISBN> 

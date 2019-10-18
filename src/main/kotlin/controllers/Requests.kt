@@ -3,9 +3,7 @@ package controllers
 import io.vertx.core.json.Json
 import io.vertx.core.json.JsonObject
 import io.vertx.ext.web.RoutingContext
-import model.Book
 import utils.MongoUtil
-import java.util.ArrayList
 
 class Requests {
     companion object {
@@ -48,29 +46,19 @@ class Requests {
 
 
 
-        fun updateIsbn(routingContext: RoutingContext, collectionName: String, fieldsToUpdate: JsonObject, isbnJson : JsonObject) {
+        fun updateIsbn(routingContext: RoutingContext, collectionName: String, fieldsToUpdate: JsonObject, isbnJson: String) {
 
-            MongoUtil.getClient().updateCollection(collectionName, isbnJson, fieldsToUpdate, { res ->
-                if (res.succeeded()) {
-                    println("Book updated !")
+            MongoUtil.getClient().updateCollection(collectionName, JsonObject(isbnJson), fieldsToUpdate) { result ->
+                if (result.succeeded()) {
+                    val book = result.result()
+                    val response = routingContext.response()
+                    response
+                        .putHeader("content-type", "application/json")
+                        .end(Json.encode(book))
                 } else {
-                    print(res.cause().printStackTrace())
+                    println("Update Error: " + result.cause())
                 }
-            })
-
-
-//            MongoUtil.getClient().updateCollection(collectionName, isbnJson, fieldsToUpdate, { result ->
-//                if (result.succeeded()) {
-//                    //println("vim")
-//                    val book = result.result()
-//                    val response = routingContext.response()
-//                    response
-//                        .putHeader("content-type", "application/json")
-//                        .end(Json.encode(book))
-//                } else {
-//                    println(result)
-//                }
-//            })
+            }
         }
 
 

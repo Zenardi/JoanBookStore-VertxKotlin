@@ -2,9 +2,11 @@ package router
 
 import controllers.Requests
 import io.vertx.core.Vertx
-import io.vertx.core.json.Json
 import io.vertx.core.json.JsonObject
 import io.vertx.ext.web.Router
+import org.bson.BsonType
+
+
 
 
 class RequestRoutes(vertx: Vertx) {
@@ -17,18 +19,25 @@ class RequestRoutes(vertx: Vertx) {
 
         router.get("/books/:isbn").handler { routingContext ->
             //Requests.index(routingContext)
-            val  jsonQuery = JsonObject().put("ISBN", routingContext.request().getParam("isbn"))
-            Requests.getByIsbn(routingContext, "Books", jsonQuery)
+            //val  findJson  =JsonObject().put("ISBN", routingContext.request().getParam("isbn").toBigInteger())
+
+            val findJson = JsonObject( "{ \"ISBN\"" + " : " + routingContext.request().getParam("isbn") + "}")
+            print(findJson)
+            Requests.getByIsbn(routingContext, "Books", findJson)
+
 
         }
 
-        router.put("/books/:isbn").handler { routingContext ->
-            val  jsonIsbn = JsonObject().put("ISBN", routingContext.request().getParam("isbn"))
-            print(jsonIsbn)
+        router.patch("/books/:isbn").handler { routingContext ->
+            //val  findJson = JsonObject(BsonType.INT64).put("ISBN", routingContext.request().getParam("isbn").toBigInteger())
+            //val findJson = JsonObject( "{ \"ISBN\"" + " : " + routingContext.request().getParam("isbn") + "}")
+            val findJson = "{ \"ISBN\"" + " : " + routingContext.request().getParam("isbn") + "}"
+
+            print(findJson)
 
             val  fieldsToUpdate = routingContext.bodyAsJson
             print(fieldsToUpdate)
-            Requests.updateIsbn(routingContext, "Books", fieldsToUpdate , jsonIsbn)
+            Requests.updateIsbn(routingContext, "Books", fieldsToUpdate , findJson)
         }
 
         router.post("/book/new").handler { routingContext ->
@@ -65,10 +74,37 @@ class RequestRoutes(vertx: Vertx) {
             findJson = findJson.substring(0, findJson.length - 2)
             findJson += " }"
 
-            print(findJson)
+            //print(findJson)
             Requests.getAllBooks(routingContext, "Books", findJson)
-            //create a Json object based on not null parameters
         }
 
+
     }
+
+    protected fun getBsonType(value: Any?): BsonType? {
+        return if (value == null) {
+            BsonType.NULL
+        } else if (value is Boolean) {
+            BsonType.BOOLEAN
+        } else if (value is Double) {
+            BsonType.DOUBLE
+        } else if (value is Int) {
+            BsonType.INT32
+        } else if (value is Long) {
+            BsonType.INT64
+        } else if (value is String) {
+            BsonType.STRING
+        }
+//        else if (isObjectIdInstance(value)) {
+//            BsonType.OBJECT_ID
+//        } else if (isObjectInstance(value)) {
+//            BsonType.DOCUMENT
+//        } else if (isArrayInstance(value)) {
+//            BsonType.ARRAY
+//        }
+        else {
+            null
+        }
+    }
+
 }

@@ -37,5 +37,36 @@ class RequestRoutes(vertx: Vertx) {
             Requests.addBook(routingContext, "Books", newBook)
         }
 
+        router.get("/book/search?:...").handler{
+            routingContext ->
+            //Get parameters
+            val author = routingContext.request().getParam("author")
+            val genre = routingContext.request().getParam("genre")
+            val title = routingContext.request().getParam("title")
+            var findJson = "{ "
+
+            if(!author.toString().isNullOrBlank() && !author.toString().isNullOrEmpty())
+            {
+                findJson += """Author""" + ":" + """"""" + author  + """"""" + ", "
+            }
+
+            if(!genre.toString().isNullOrBlank() && !genre.toString().isNullOrEmpty())
+            {
+                findJson += """Genre""" + ":" + """"""" + genre  + """"""" + ", "
+            }
+
+            if(!title.toString().isNullOrBlank() && !title.toString().isNullOrEmpty())
+            {
+                findJson += """Title""" + ":" + """"""" + title  + """"""" + ", "
+            }
+
+            //remove last comma
+            findJson.substring(0, findJson.length - 2)
+            findJson += " }"
+
+            Requests.getAllBooks(routingContext, "Books", findJson)
+            //create a Json object based on not null parameters
+        }
+
     }
 }

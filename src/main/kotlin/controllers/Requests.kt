@@ -50,11 +50,11 @@ class Requests {
 
         fun updateIsbn(routingContext: RoutingContext, collectionName: String, fieldsToUpdate: JsonObject, isbnJson : JsonObject) {
 
-            MongoUtil.getClient().updateCollection("books", isbnJson, fieldsToUpdate, { res ->
+            MongoUtil.getClient().updateCollection(collectionName, isbnJson, fieldsToUpdate, { res ->
                 if (res.succeeded()) {
                     println("Book updated !")
                 } else {
-                    res.cause().printStackTrace()
+                    print(res.cause().printStackTrace())
                 }
             })
 
@@ -90,7 +90,22 @@ class Requests {
             })
         }
 
+        fun getAllBooks(routingContext: RoutingContext, collectionName: String, findJson: String) {
+            val json = JsonObject(findJson)
 
+            MongoUtil.getClient().find(collectionName, json) { result ->
+                if (result.succeeded()) {
+                    //println("vim")
+                    val book = result.result()
+                    val response = routingContext.response()
+                    response
+                        .putHeader("content-type", "application/json")
+                        .end(Json.encode(book))
+                } else {
+                    println("Nope")
+                }
+            }
+        }
 
 
     }

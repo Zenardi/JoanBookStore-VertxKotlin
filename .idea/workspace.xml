@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0605bd25-03ee-4fd9-889b-4fe04d8255da" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/configs/Config.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/configs/Config.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/controllers/Requests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controllers/Requests.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/router/RequestRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/router/RequestRoutes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/configs/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/configs/Config.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/router/RequestRoutes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/router/RequestRoutes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/MongoUtil$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MongoUtil$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/MongoUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MongoUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/verticle/MainVerticle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticleKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/verticle/MainVerticleKt.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -88,3 +88,27 @@ Example:
 Joan wants to find the book `Name of the Wind` by Patrick Rothfuss but she can't remember the exact title of the book so she wants to search for books by Patrick Rothfuss.
 
 She should be able to combine her search terms in any number of ways she wants.  Results should be sorted in the standard format stated in the previous problems.
+
+#Results
+
+#### Endpoints
+##### GET: http://localhost:8888/books/<ISBN> 
+
+##### GET: http://localhost:8888/books/
+
+##### PUT: http://localhost:8888/book/new
+
+Example Body:
+
+{"AgeRange":"15-35","Author":"Ann Patchett","Description":"At the end of the Second World War, Cyril Conroy combines luck and a single canny investment to begin an enormous real estate empire, propelling his family from poverty to enormous wealth. His first order of business is to buy the Dutch House, a lavish estate in the suburbs outside of Philadelphia. Meant as a surprise for his wife, the house sets in motion the undoing of everyone he loves.","Genre":"Coming-Of-Age Fiction","ISBN":"9780062963673","Pages":"352","Price":"$27.99","Quantity": 60,"Title":"The Dutch House"}
+
+##### PATH: http://localhost:8888/books/<ISBN>
+
+Example Body:
+
+{
+	"quantity": "40"
+}
+
+##### Get Query: 
+http://localhost:8888/book/search?author=Eric Carle&title=The Very Hungry Caterpillar&genre=Children

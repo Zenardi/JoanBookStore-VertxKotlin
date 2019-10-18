@@ -40,11 +40,6 @@ class RequestRoutes(vertx: Vertx) {
         router.get("/book/search").handler{
             routingContext ->
 
-//            val params = routingContext.queryParams()
-//            val authorParam = params.getAll("author")
-//            val titleParam = params.getAll("title")
-//            val genreParam = params.getAll("genre")
-
             //Get parameters
             val author = routingContext.request().getParam("author")
             val genre = routingContext.request().getParam("genre")

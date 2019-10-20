@@ -4,10 +4,12 @@ import controllers.Requests
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
 import io.vertx.ext.web.Router
+import model.Book
 import org.bson.BsonType
 
 
-
+///TODO -Filter: Only show books with stock >0
+///TODO -implement order
 
 class RequestRoutes(vertx: Vertx) {
     var router: Router = Router.router(vertx)
@@ -21,7 +23,7 @@ class RequestRoutes(vertx: Vertx) {
             //Requests.index(routingContext)
             //val  findJson  =JsonObject().put("ISBN", routingContext.request().getParam("isbn").toBigInteger())
 
-            val findJson = JsonObject( "{ \"ISBN\"" + " : " + routingContext.request().getParam("isbn") + "}")
+            val findJson = JsonObject().put("ISBN", routingContext.request().getParam("isbn").toLong())
             print(findJson)
             Requests.getByIsbn(routingContext, "Books", findJson)
 
@@ -29,15 +31,17 @@ class RequestRoutes(vertx: Vertx) {
         }
 
         router.patch("/books/:isbn").handler { routingContext ->
-            //val  findJson = JsonObject(BsonType.INT64).put("ISBN", routingContext.request().getParam("isbn").toBigInteger())
-            //val findJson = JsonObject( "{ \"ISBN\"" + " : " + routingContext.request().getParam("isbn") + "}")
-            val findJson = "{ \"ISBN\"" + " : " + routingContext.request().getParam("isbn") + "}"
+            var isbnJson : JsonObject = JsonObject()
+            isbnJson.put("ISBN", routingContext.request().getParam("isbn").toLong())
 
-            print(findJson)
+            val  body = routingContext.bodyAsJson
+            val qtyValue = body.getString("Qty")
+            val fieldsToUpdate = JsonObject().put(
+                "\$set", JsonObject()
+                    .put("Qty", qtyValue)
+            )
 
-            val  fieldsToUpdate = routingContext.bodyAsJson
-            print(fieldsToUpdate)
-            Requests.updateIsbn(routingContext, "Books", fieldsToUpdate , findJson)
+            Requests.updateIsbn(routingContext, "Books", fieldsToUpdate , isbnJson)
         }
 
         router.post("/book/new").handler { routingContext ->
@@ -53,29 +57,33 @@ class RequestRoutes(vertx: Vertx) {
             val author = routingContext.request().getParam("author")
             val genre = routingContext.request().getParam("genre")
             val title = routingContext.request().getParam("title")
-            var findJson = "{ "
-
+            var findJson : String = "{ "
+            var jsonObj = JsonObject()
             if(!author.isNullOrBlank() && !author.isNullOrEmpty())
             {
                 findJson += "\"Author\"" + ":" + "\"" + author  + "\"" + ", "
+                jsonObj.put("Author", author)
             }
 
             if(!genre.isNullOrBlank() && !genre.isNullOrEmpty())
             {
                 findJson += "\"Genre\"" + ":" + "\"" + genre  + "\"" + ", "
+                jsonObj.put("Genre", genre )
+
             }
 
             if(!title.isNullOrBlank() && !title.isNullOrEmpty())
             {
                 findJson += "\"Title\"" + ":" + "\"" + title  + "\"" + ", "
+                jsonObj.put("Title", title)
+
             }
 
             //remove last comma
-            findJson = findJson.substring(0, findJson.length - 2)
-            findJson += " }"
-
-            //print(findJson)
-            Requests.getAllBooks(routingContext, "Books", findJson)
+            findJson += "\"Quantity\"" +" :  {"+ "$"+ "gte : 60} }"
+            //findJson = findJson.subs/tring(0, findJson.length - 2)
+            //print("JSON: " + findJson)
+            Requests.getAllBooks(routingContext, "Books", jsonObj)
         }
 
 

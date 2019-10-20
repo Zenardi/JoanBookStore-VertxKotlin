@@ -13,14 +13,15 @@ class Requests {
 
             MongoUtil.getClient().find(collectionName, json) { result ->
                 if (result.succeeded()) {
-                    //println("vim")
                     val book = result.result()
                     val response = routingContext.response()
                     response
                         .putHeader("content-type", "application/json")
                         .end(Json.encode(book))
                 } else {
-                    println("Nope")
+                    val response = routingContext.response()
+                    response.putHeader("content-type", "application/json").setStatusCode(400).end(Json.encode(result.cause().message))
+                    println("Update Error: " + result.cause())
                 }
             }
         }
@@ -30,32 +31,36 @@ class Requests {
 
         fun getByIsbn(routingContext: RoutingContext, collectionName: String, jsonQuery: JsonObject) {
             //print(jsonQuery)
-            MongoUtil.getClient().find(collectionName, jsonQuery, { result ->
+            MongoUtil.getClient().find(collectionName, jsonQuery) { result ->
                 if (result.succeeded()) {
                     //println("vim")
                     val book = result.result()
                     val response = routingContext.response()
                     response
-                        .putHeader("content-type", "application/json")
+                        .putHeader("content-type", "application/json").setStatusCode(200)
                         .end(Json.encode(book))
                 } else {
-                    println("Nope")
+                    val response = routingContext.response()
+                    response.putHeader("content-type", "application/json").setStatusCode(400).end(Json.encode(result.cause().message))
+
                 }
-            })
+            }
         }
 
 
 
-        fun updateIsbn(routingContext: RoutingContext, collectionName: String, fieldsToUpdate: JsonObject, isbnJson: String) {
+        fun updateIsbn(routingContext: RoutingContext, collectionName: String, fieldsToUpdate: JsonObject, isbnJson: JsonObject) {
 
-            MongoUtil.getClient().updateCollection(collectionName, JsonObject(isbnJson), fieldsToUpdate) { result ->
+            MongoUtil.getClient().updateCollection(collectionName, isbnJson, fieldsToUpdate) { result ->
                 if (result.succeeded()) {
                     val book = result.result()
                     val response = routingContext.response()
                     response
                         .putHeader("content-type", "application/json")
-                        .end(Json.encode(book))
+                        .end(Json.encodePrettily(book.toJson()))
                 } else {
+                    val response = routingContext.response()
+                    response.putHeader("content-type", "application/json").setStatusCode(400).end(Json.encode(result.cause().message))
                     println("Update Error: " + result.cause())
                 }
             }
@@ -64,7 +69,7 @@ class Requests {
 
         fun addBook(routingContext: RoutingContext, collectionName: String, newBook : JsonObject) {
 
-            MongoUtil.getClient().insert(collectionName, newBook, { res ->
+            MongoUtil.getClient().insert(collectionName, newBook) { res ->
                 if (res.succeeded()) {
                     val book = res.result()
                     val response = routingContext.response()
@@ -73,15 +78,17 @@ class Requests {
                         .end(Json.encode(newBook))
 
                 } else {
-                    println(res.cause())
+                    val response = routingContext.response()
+                    response.putHeader("content-type", "application/json").setStatusCode(400).end(Json.encode(res.cause().message))
+                    println("Update Error: " + res.cause())
                 }
-            })
+            }
         }
 
-        fun getAllBooks(routingContext: RoutingContext, collectionName: String, findJson: String) {
-            val json = JsonObject(findJson)
-
-            MongoUtil.getClient().find(collectionName, json) { result ->
+        fun getAllBooks(routingContext: RoutingContext, collectionName: String, findJson: JsonObject) {
+            //val json = JsonObject(findJson)
+            //print("JSON: " + json)
+            MongoUtil.getClient().find(collectionName, findJson) { result ->
                 if (result.succeeded()) {
                     //println("vim")
                     val book = result.result()
@@ -90,7 +97,9 @@ class Requests {
                         .putHeader("content-type", "application/json")
                         .end(Json.encode(book))
                 } else {
-                    println("Nope")
+                    val response = routingContext.response()
+                    response.putHeader("content-type", "application/json").setStatusCode(400).end(Json.encode(result.cause().message))
+                    println("Update Error: " + result.cause())
                 }
             }
         }

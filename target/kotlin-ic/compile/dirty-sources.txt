@@ -1,0 +1,6 @@
+C:\Users\duzen\source\repos\bookstorevertxkotlin\src\main\kotlin\configs\Config.kt
+C:\Users\duzen\source\repos\bookstorevertxkotlin\src\main\kotlin\controllers\Requests.kt
+C:\Users\duzen\source\repos\bookstorevertxkotlin\src\main\kotlin\model\Book.kt
+C:\Users\duzen\source\repos\bookstorevertxkotlin\src\main\kotlin\router\RequestRoutes.kt
+C:\Users\duzen\source\repos\bookstorevertxkotlin\src\main\kotlin\utils\MongoUtil.kt
+C:\Users\duzen\source\repos\bookstorevertxkotlin\src\main\kotlin\verticle\MainVerticle.kt

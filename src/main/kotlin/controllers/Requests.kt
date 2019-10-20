@@ -2,6 +2,7 @@ package controllers
 
 import io.vertx.core.json.Json
 import io.vertx.core.json.JsonObject
+import io.vertx.ext.mongo.FindOptions
 import io.vertx.ext.web.RoutingContext
 import utils.MongoUtil
 
@@ -11,7 +12,9 @@ class Requests {
             val json = JsonObject()
             //val requestData = routingContext.bodyAsJson
 
-            MongoUtil.getClient().find(collectionName, json) { result ->
+            val options = FindOptions().setSort(JsonObject().put("Genre", 1).put("Author", 1))
+            print(options.toJson())
+            MongoUtil.getClient().findWithOptions(collectionName, json, options) { result ->
                 if (result.succeeded()) {
                     val book = result.result()
                     val response = routingContext.response()
@@ -86,11 +89,11 @@ class Requests {
         }
 
         fun getAllBooks(routingContext: RoutingContext, collectionName: String, findJson: JsonObject) {
-            //val json = JsonObject(findJson)
-            //print("JSON: " + json)
-            MongoUtil.getClient().find(collectionName, findJson) { result ->
+
+            val options = FindOptions().setSort(JsonObject().put("Genre", 1).put("Author", 1))
+
+            MongoUtil.getClient().findWithOptions(collectionName, findJson, options) { result ->
                 if (result.succeeded()) {
-                    //println("vim")
                     val book = result.result()
                     val response = routingContext.response()
                     response

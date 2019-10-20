@@ -8,9 +8,6 @@ import model.Book
 import org.bson.BsonType
 
 
-///TODO -Filter: Only show books with stock >0
-///TODO -implement order
-
 class RequestRoutes(vertx: Vertx) {
     var router: Router = Router.router(vertx)
 
@@ -86,10 +83,7 @@ class RequestRoutes(vertx: Vertx) {
 
             jsonObj.put("Qty", JsonObject().put("\$gte", 1));
             print(jsonObj.toString())
-//
-//            jsonObj.put(
-//                        "\$gte", JsonObject()
-//                    .put("Qty", 60))
+
             Requests.getAllBooks(routingContext, "Books", jsonObj)
         }
 

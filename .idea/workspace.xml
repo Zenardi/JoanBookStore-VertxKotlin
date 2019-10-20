@@ -2,39 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0605bd25-03ee-4fd9-889b-4fe04d8255da" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/controllers/Requests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/controllers/Requests.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/model/Book.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/model/Book.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/router/RequestRoutes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/router/RequestRoutes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/configs/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/configs/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$addBook$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$addBook$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$getAllBooks$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$getAllBooks$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$getAllBooks$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$getAllBooks$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$getByIsbn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$getByIsbn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$updateIsbn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion$updateIsbn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/Requests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/Requests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Book.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/router/RequestRoutes$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/router/RequestRoutes$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/router/RequestRoutes$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/router/RequestRoutes$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/router/RequestRoutes$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/router/RequestRoutes$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/router/RequestRoutes$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/router/RequestRoutes$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/router/RequestRoutes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/router/RequestRoutes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/MongoUtil$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MongoUtil$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/MongoUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MongoUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticle$start$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/verticle/MainVerticle$start$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/verticle/MainVerticle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/verticle/MainVerticleKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/verticle/MainVerticleKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest$run$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bookstore/vertx/VertxUnitTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

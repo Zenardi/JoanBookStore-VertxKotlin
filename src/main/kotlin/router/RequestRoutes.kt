@@ -81,8 +81,15 @@ class RequestRoutes(vertx: Vertx) {
 
             //remove last comma
             findJson += "\"Quantity\"" +" :  {"+ "$"+ "gte : 60} }"
-            //findJson = findJson.subs/tring(0, findJson.length - 2)
+            //findJson = findJson.substring(0, findJson.length - 2)
             //print("JSON: " + findJson)
+
+            jsonObj.put("Qty", JsonObject().put("\$gte", 1));
+            print(jsonObj.toString())
+//
+//            jsonObj.put(
+//                        "\$gte", JsonObject()
+//                    .put("Qty", 60))
             Requests.getAllBooks(routingContext, "Books", jsonObj)
         }
 

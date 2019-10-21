@@ -7,12 +7,20 @@ import io.vertx.ext.web.Router
 import io.vertx.ext.web.handler.BodyHandler
 import router.RequestRoutes
 
-fun main() {
-    val vertx = Vertx.vertx()
-    vertx.deployVerticle(MainVerticle())
-}
+
+
+
 
 class MainVerticle : AbstractVerticle() {
+
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            val vertx = Vertx.vertx()
+            vertx.deployVerticle(MainVerticle())
+        }
+    }
+
 
     override fun start(startFuture: Future<Void>) {
         // create a router object

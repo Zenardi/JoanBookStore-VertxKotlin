@@ -1,0 +1,42 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="bookstore-vertx-kotlin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/bookstore_vertx_kotlin_jar</output-path>
+    <root id="archive" name="bookstore-vertx-kotlin.jar">
+      <element id="module-output" name="bookstore-vertx-kotlin" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-async/3.10.1/mongodb-driver-async-3.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-codec/4.1.19.Final/netty-codec-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-common/4.1.19.Final/netty-common-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.9.3/jackson-databind-2.9.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-resolver-dns/4.1.19.Final/netty-resolver-dns-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/3.10.1/mongodb-driver-core-3.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-buffer/4.1.19.Final/netty-buffer-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-handler-proxy/4.1.19.Final/netty-handler-proxy-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-config/3.8.2/vertx-config-3.8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-handler/4.1.19.Final/netty-handler-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-rx-gen/3.8.2/vertx-rx-gen-3.8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.9.3/jackson-core-2.9.3.jar" path-in-jar="/" />
+      <element id="library" level="project" name="kotlin" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-resolver/4.1.19.Final/netty-resolver-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mvel/mvel2/2.3.1.Final/mvel2-2.3.1.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-codec-dns/4.1.19.Final/netty-codec-dns-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-mongo-client/3.8.2/vertx-mongo-client-3.8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-core/3.5.1/vertx-core-3.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-codec-http2/4.1.19.Final/netty-codec-http2-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/bson/3.10.1/bson-3.10.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/13.0/annotations-13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-codec-socks/4.1.19.Final/netty-codec-socks-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-codegen/3.8.2/vertx-codegen-3.8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-bridge-common/3.5.1/vertx-bridge-common-3.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-transport/4.1.19.Final/netty-transport-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-web/3.5.1/vertx-web-3.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/reactivestreams/reactive-streams/1.0.3/reactive-streams-1.0.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/reactivex/rxjava2/rxjava/2.2.12/rxjava-2.2.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-auth-common/3.5.1/vertx-auth-common-3.5.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/netty/netty-codec-http/4.1.19.Final/netty-codec-http-4.1.19.Final.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/vertx/vertx-rx-java2/3.8.2/vertx-rx-java2-3.8.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
